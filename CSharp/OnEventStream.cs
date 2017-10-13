@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 
-namespace DM2BD.DTK.DAL.Lib
-{
     /// <summary>
     /// Wraps another stream and provides reporting for when bytes are read or written to the stream.
     /// </summary>
@@ -109,11 +107,4 @@ namespace DM2BD.DTK.DAL.Lib
     }
 
 
-
-
-
-
-
-
-}
 
