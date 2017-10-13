@@ -1,4 +1,4 @@
-
+#https://github.com/EnclaveConsulting/SANS-SEC505
 
 function Convert-HexStringToByteArray {
     ################################################################
