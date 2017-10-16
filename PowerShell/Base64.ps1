@@ -1,9 +1,31 @@
 function ConvertTo-Base64 {
-   
-    [CmdletBinding()]
-    Param ([Parameter(Mandatory = $True, ValueFromPipeline = $True)][String] $String)
+    Param(
+        [Parameter(Mandatory = $true,
+            ParameterSetName = "string",
+            Position = 0,
+            ValueFromPipeline = $true,
+            HelpMessage = 'String to encode.')]
+        [Alias('ascii')]
+        [string]$string,
+
+        [Parameter(Mandatory = $true,
+            ParameterSetName = "bytes",
+            Position = 0,
+            ValueFromPipeline = $true,
+            HelpMessage = 'pass byte[] to encode.')]
+        [Alias('IPv4Address', 'IPv6Address')]
+        [byte]$bytes)
  
-    [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($String))
+
+        
+    switch ($PsCmdlet.ParameterSetName) {
+        "bytes" {
+            [System.Convert]::ToBase64String($bytes)
+        }
+        "string" {
+            [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($String))
+        }
+    }
  
 }
 
