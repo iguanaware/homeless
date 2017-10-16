@@ -3,7 +3,7 @@ function ConvertTo-Base64 {
     [CmdletBinding()]
     Param ([Parameter(Mandatory = $True, ValueFromPipeline = $True)][String] $String)
  
-    [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($String))
+    [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($String))
  
 }
 
